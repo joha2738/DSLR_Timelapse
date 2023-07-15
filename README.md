@@ -10,3 +10,6 @@ TFT Display - I used a 1.8" TFT SPI 128*160 from Aliexpress
 Rotary Encoder with push button
 
 Coded in Arduino IDE v.2
+
+Image 2 CPP:
+http://javl.github.io/image2cpp/
