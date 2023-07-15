@@ -4,7 +4,6 @@
 // Kode skrevet 120723 af Johannes Dahl
 // Revideret 150723 af Johannes Dahl
 
-
 #include <SPI.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
