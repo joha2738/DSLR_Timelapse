@@ -1,6 +1,9 @@
-/**************************************************************************
+//====================================================================================================
+//                         Arduino DSLR Timelapse Controller with OLED Display
+//====================================================================================================
+// Kode skrevet 120723 af Johannes Dahl
+// Revideret 150723 af Johannes Dahl
 
- **************************************************************************/
 
 #include <SPI.h>
 #include <Wire.h>
@@ -31,11 +34,9 @@ int cameraState = LOW;
 // On an arduino MEGA 2560: 20(SDA), 21(SCL)
 // On an arduino LEONARDO:   2(SDA),  3(SCL), ...
 #define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
-#define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
+#define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3C for 128x64
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-
-#define NUMFLAKES     10 // Number of snowflakes in the animation example
 
 #define LOGO_HEIGHT   16
 #define LOGO_WIDTH    16
@@ -156,7 +157,9 @@ const unsigned char* myBitmapallArray[1] = {
 };
 
 
-
+//====================================================================================================
+//                                     		SETUP
+//====================================================================================================
 void setup() {
   Serial.begin(9600);
   if(!display.begin(SSD1306_SWITCHCAPVCC, SCREEN_ADDRESS)) {
@@ -183,6 +186,9 @@ display.write("Time interval");
 display.display();
 }
 
+//====================================================================================================
+//                                          LOOP Start
+//====================================================================================================
 void loop() {  
 
 //====================================================================================================
@@ -253,14 +259,18 @@ void loop() {
       digitalWrite(ledPin, ledState);
     }
   }else{}
+ }
 }
+//====================================================================================================
+//                                          LOOP Slut
+//====================================================================================================
+
+
 
 
 //====================================================================================================
-//                                            LOOP slut
+//                                   Switch CASE for kamera logo
 //====================================================================================================
-}
-
 void doSwitchStatement() {
   switch(selector) {
     case 0:
@@ -278,7 +288,9 @@ void doSwitchStatement() {
     }
   }
 
-
+//====================================================================================================
+//                                       Top logo på display
+//====================================================================================================
 void topLogo(){
   display.clearDisplay();
   display.invertDisplay(false);
@@ -286,6 +298,9 @@ void topLogo(){
   display.drawRoundRect(0, 0, 126, 24, SSD1306_WHITE, 2);
   display.display();
 }
+//====================================================================================================
+//                                     Splash skærm på display
+//====================================================================================================
 void splash(){
   display.clearDisplay();
   display.invertDisplay(true);
@@ -297,7 +312,9 @@ void splash(){
   display.clearDisplay();
   display.display();
 }
-
+//====================================================================================================
+//                                     Loading skærm på display
+//====================================================================================================
 void loading(){
   display.setTextSize(1);      // Normal 1:1 pixel scale
   display.setTextColor(SSD1306_WHITE); // Draw white text
