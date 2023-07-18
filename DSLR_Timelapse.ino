@@ -244,7 +244,7 @@ void loop() {
 
   if (cameraState == HIGH){
     unsigned long currentMillis = millis();
-    if (currentMillis - previousMillis >= counter*1000) {
+    if (currentMillis - previousMillis >= counter*500) {
       previousMillis = currentMillis;
 
       if (ledState == LOW) {
