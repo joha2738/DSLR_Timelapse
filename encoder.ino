@@ -1,3 +1,5 @@
+// From https://www.diyengineers.com/2021/06/03/arduino-rotary-encoder-how-to-use/
+
 //Arduino Code - Rotary Encoder w push button
 
 #include <BfButton.h>
