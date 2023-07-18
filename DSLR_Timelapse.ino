@@ -174,7 +174,6 @@ pinMode(buttonPin, INPUT_PULLUP);
 pinMode(ledPin, OUTPUT);
 
 splash();
-loading();
 topLogo();
 
 display.setTextSize(1);      // Normal 1:1 pixel scale
@@ -311,21 +310,4 @@ void splash(){
   display.clearDisplay();
   display.display();
 }
-//====================================================================================================
-//                                     Loading skærm på display
-//====================================================================================================
-void loading(){
-  display.setTextSize(1);      // Normal 1:1 pixel scale
-  display.setTextColor(SSD1306_WHITE); // Draw white text
-  display.setCursor(25, 28);     // Start at top-left corner
-  //display.cp437(true);         // Use full 256 char 'Code Page 437' font
-  display.write("Loading");
-  display.display();
-  delay(200);
-  for (int i = 66; i < 100; i=i+4){
-    display.setCursor(i, 28);
-    display.write(".");
-    display.display();
-    delay(200);
-    }
-}
+
