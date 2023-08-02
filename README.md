@@ -14,7 +14,10 @@ Coded in Arduino IDE v.2
 Image 2 CPP:
 http://javl.github.io/image2cpp/
 
+
 Wire colors:
+
   Red+Yellow - Take picture
+  
   White+Yellow - Focus
 
